@@ -1,4 +1,4 @@
-peline {
+pipeline {
      environment {
        ID_DOCKER = "${ID_DOCKER_PARAMS}"
        IMAGE_NAME = "miniprojet"

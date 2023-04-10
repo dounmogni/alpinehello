@@ -10,7 +10,7 @@ pipeline {
        PROD_API_ENDPOINT = "51.178.37.209:1993"
        PROD_APP_ENDPOINT = "51.178.37.209:80"
        INTERNAL_PORT = "80"
-       IP = "51.254.103.147"
+       IP = "192.168.0.10"
        EXTERNAL_PORT = "${PORT_EXPOSED}"
        CONTAINER_IMAGE = "${ID_DOCKER}/${IMAGE_NAME}:${IMAGE_TAG}"
 

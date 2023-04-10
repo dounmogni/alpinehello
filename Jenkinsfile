@@ -9,7 +9,7 @@ pipeline {
        STG_APP_ENDPOINT = "51.254.103.147:80"
        PROD_API_ENDPOINT = "51.178.37.209:1993"
        PROD_APP_ENDPOINT = "51.178.37.209:80"
-       INTERNAL_PORT = "80"
+       INTERNAL_PORT = "5000"
        IP = "192.168.0.10"
        EXTERNAL_PORT = "${PORT_EXPOSED}"
        CONTAINER_IMAGE = "${ID_DOCKER}/${IMAGE_NAME}:${IMAGE_TAG}"
@@ -32,7 +32,7 @@ pipeline {
                  sh '''
                     echo "Clean Environment"
                     docker rm -f $IMAGE_NAME || echo "container does not exist"
-                    docker run --name $IMAGE_NAME -d -p ${PORT_EXPOSED}:${INTERNAL_PORT} -e PORT=5000 ${ID_DOCKER}/$IMAGE_NAME:$IMAGE_TAG
+                    docker run --name $IMAGE_NAME -d -p ${PORT_EXPOSED}:${INTERNAL_PORT} -e PORT=${INTERNAL_PORT} ${ID_DOCKER}/$IMAGE_NAME:$IMAGE_TAG
                     sleep 5
                  '''
                }
